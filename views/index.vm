@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+    <meta name="format-detection" content="telephone=no" >
+    <meta name="format-detection" content="email=no" >
+    <meta name="format-detection" content="address=no;">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>卖家秘籍</title>
+    <link rel="stylesheet" type="text/css" href="/css/another.css">
+</head>
+
+<body>
+    #set($salerInfo={
+        "infoId":"25511044725167",
+        "picUrl":"http://pic6.58cdn.com.cn/mobile/big/n_v1bkuymcz6zkivn5vlb4ma_088b6baa29134f6c.jpg",
+        "title":"大麦电视直播机顶盒子",
+        "desc":"购机时长在三个月内，有保修，屏幕无划痕或坏点，机身几乎全新",
+        "price":"￥199",
+        "views":"50",
+        "addDate":"03.14 ",
+        "appUrl":"app对应的详情页的地址",
+        "fullPath":"对应的全路径",
+        "listName":"所属类别",
+        "cateId":"分类id",
+        "localName":"bj"
+
+    })
+    #set($infoList=[$salerInfo,$salerInfo,$salerInfo,$salerInfo])
+    <div class="wrapper">
+        <div class="w_area">
+            <ul class="infoList">
+                <li infoid="$salerInfo.infoId">
+                    <div class="list">
+                        <img rel="" src="$salerInfo.picUrl">
+                    </div>
+                    <dl class="infocon">
+                        <dt class="info_title">$salerInfo.title</dt>
+                        <dd class="info_desc">$salerInfo.desc</dd>
+                        <dd class="info_others">
+                            <span class="price">$salerInfo.price</span>
+                            <span class="views">$salerInfo.views次浏览</span>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <ul class="editBtn" infoid="$salerInfo.infoId">
+            <li id="edit">编辑</li>
+            <li id="refresh" class="des_refresh" infoid="$salerInfo.infoId">刷新</li>
+            <li id="again">再来一条</li>
+        </ul>
+    </div>
+    <div class="wrapper">
+        <div class="w_title">值得借鉴</div>
+        <div class="w_area" id="imitate">
+            <ul class="infoList">
+            #foreach($info in $infoList)
+            #if($infoList.size()>0)
+                <li>
+                    <span class="list"><img rel="" src="$info.picUrl"></span>
+                    <dl class="infocon">
+                        <dt class="info_title">$info.title</dt>
+                        <dd class="info_desc">发布于$info.addDate  浏览<i class="views">$info.views</i>次</dd>
+                        <dd class="info_others">
+                            <span class="price">$info.price</span>
+                        </dd>
+                    </dl>
+                </li>
+            #end
+            #end
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="w_area yp_bottom">
+        <div>
+            <p class="as_saler">帮你卖 - 58优品</p>
+            <p class="save">省心省力，坐等收钱！</p>
+        </div>
+        <div class="to_yp">卖给优品</div>
+    </div> -->
+    <script src="http://pic2.58.com/m58/app58/m_static/js/zepto.min.js"></script>
+    <script src="http://pic2.58.com/m58/app58/m_static/js/app.js"></script>
+    <script src="js/foo.js"></script>
+</body>
+
+</html>

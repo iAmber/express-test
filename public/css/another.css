@@ -1,0 +1,164 @@
+/*another.css*/
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, em {
+  margin: 0;
+  padding: 0;
+}
+ul,li{
+	list-style:none;
+}
+body{
+	font-family: "Microsoft Yahei";
+	background-color: #f6f6f6;
+}
+i{
+	font-style:normal;
+	color:#ff5252;
+}
+.wrapper{
+	background-color:#fff;
+	margin-bottom: 12px;
+	overflow: hidden;
+}
+.w_title{
+	margin: 17px 15px;
+	padding-left: 10px;
+	height: 20px;
+	line-height: 20px;
+	border-left: 2px solid #ff6a22;
+}
+.w_area{
+	background-color: #fff;
+	padding: 0 15px;
+}
+.infoList {
+    background-color: #fff;
+    padding-top:5px;
+}
+.infoList li {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.infoList .list {	
+    width: 100px;
+    height: 80px;
+}
+
+.infoList img {
+    display: block;
+    overflow: hidden
+}
+
+.infocon {
+    padding-left: 15px;
+    -moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	-o-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+    overflow: hidden
+}
+
+.infoList .info_title {
+    font-size: 15px;
+    line-height: 20px;
+    color: #3F4358;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #808080;
+}
+
+.infoList .info_desc {
+    height: 40px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #808080;
+}
+
+.infoList .info_others {
+	font-size: 15px;
+	height: 18px;
+	margin: 2px 0 0;
+	line-height: 18px;
+	color: #ff5252;
+	overflow: hidden;
+}
+.info_others .price{
+	padding-right: 13px;
+	border-right: 1px solid #dfe0df;
+}
+
+.info_others .views{
+	padding-left: 10px;
+}
+
+.editBtn{
+	display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-flexbox;
+    display: flex;
+	color: #ff6a22;
+	padding: 10px 15px 20px 0;
+}
+.editBtn li{
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	-o-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	height: 30px;
+	margin-left: 15px;
+	text-align: center;
+	line-height: 30px;
+	border:1px solid #ff6a22;
+	border-radius: 5px;
+}
+#imitate li{
+	border-top: 1px solid #f3f3f3;
+}
+#imitate .info_desc{
+	height:40px;
+	line-height:40px;
+	font-size:13px;
+}
+#imitate .price{
+	font-weight:bold;
+	border:none;
+}
+.yp_bottom{
+    padding: 20px 15px;
+    overflow: hidden;
+}
+.yp_bottom div:nth-child(1){
+	float: left;
+}
+.as_saler{
+	font-size: 15px;
+    color: #ff6a22;
+    line-height: 20px;
+}
+.save{
+	color: #a0a0a0;
+    font-size: 13px;
+    height: 20px;
+    line-height: 20px;
+}
+.to_yp{
+	float: right;
+    width: 85px;
+    height: 30px;
+    margin: 4px 0;
+    color: #ff6a22;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #ff6a22;
+    border-radius: 5px;
+}
