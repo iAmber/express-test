@@ -17,7 +17,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'vm');
+app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -28,15 +28,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', express.static('public'));
 
-app.engine('vm',function(path,options,fn){  
+app.engine('html',function(path,options,fn){  
         var template = fs.readFileSync(path).toString();  
         var macros = {  
             parse: function(file) {  
-                var template = fs.readFileSync(cwd + '/' + file).toString()  
+
+                var template = fs.readFileSync(cwd + '/' + file).toString();   
                 return this.eval(template);  
             }  
         }  
-        try{  
+        try{  console.log("2222222"+template);
             fn(null, velocity.render(template, options, macros))  
         }catch(err){  
             console.log(err);  

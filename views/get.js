@@ -3,12 +3,12 @@ var app = express();
 //接着，我们可以使用app.动词()定义路由。  
 //比如使用"GET /"响应"Hello World"字符串，因为res、req都是Node提供的准确的对象，因此你可以调用res.pipe()  
 //或req.on('data', callback)或者其它。  
-//app.get('/hello.txt', function(req, res){    
-//    var body = 'Hello World';    
-//    res.setHeader('Content-Type', 'text/plain');    
-//    res.setHeader('Content-Length', body.length);    
-//    res.end(body);    
-//});    
+app.get('/zhuanzhuan/per_detail/*', function(req, res){    
+   var body = 'Hello World';    
+   res.setHeader('Content-Type', 'text/plain');    
+   res.setHeader('Content-Length', body.length);    
+   res.end(body);    
+});    
   
 //ExpressJS框架提供了更高层的方法，比如res.send()，它可以省去诸如添加Content-Length之类的事情。如下：  
 //处理GET请求  
