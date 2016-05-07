@@ -1,0 +1,8 @@
+ TODOlist
+ ✔ zz_init.html部分的$content部分    对\n 做换行处理 @done (16-05-07 19:13)
+ ✔ zz_init.html部分的$seoContent部分 对\n 做空格处理 @done (16-05-07 19:13)
+ ☐ head.html 部分对css路径加本控制
+ ☐ zz_stat.html 部分   json4fe的封装问题
+ ☐ css  分模块整理打包
+ ☐ js   分模块整理打包
+ ✔ banner  dom结构梳理 @done (16-05-07 19:13)
