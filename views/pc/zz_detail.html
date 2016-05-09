@@ -1,0 +1,26 @@
+#parse("/views/pc/fragment/back_init/zz_init.html")
+
+#parse("/views/pc/fragment/head/head.html")
+<body>
+  <div id="topbar"></div>
+  #parse("/views/pc/fragment/header/header_banner.html")
+  ##main 
+  #parse("/views/pc/fragment/main/detail_main.html")
+  ##加载失败
+  #parse("/views/pc/fragment/common/fail.html")
+  ##二维码
+  #parse("/views/pc/fragment/common/qrCode.html")
+  ##footer 底部
+  #parse("/views/pc/fragment/footer/footer.html")
+  ##gotop 回顶部 
+  #parse("/views/pc/fragment/common/goTop.html")
+  
+  <script type="text/javascript" src='$!{commonhelper.cdnJsUrl("http://static.58.com/js/v8/boot/boot_sale.js")}'></script>
+  <script type="text/javascript" src='$!{commonhelper.cdnJsUrl("http://j1.58cdn.com.cn/js/5_1/jquery.qrcode.min.js")}'></script>
+  <script>
+    require(['_pkg/sale/sale_common_zzfinal_dom'],function(){
+    });
+  </script>
+  <script type="text/javascript" src="http://tracklog.58.com/referrer4.js"></script>
+</body>
+</html>

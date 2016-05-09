@@ -1,0 +1,103 @@
+<div class="info_lubotu clearfix">
+  <div class="box_left_top">
+      <h3 class="info_titile">$!{zzInfo.title}</h3>
+      <p class="info_p">
+          <span class="look_time">$!{zzInfo.viewCount}次浏览</span>
+           <span class="want_person">$!{zzInfo.collectCount}人想买</span>
+      </p>
+  </div>
+  ##S banner 内容  
+   <div class="banner">
+      ##S 宝贝图片轮播
+      #if($!{piclen} > 0)
+      <div class="gallery">
+          <div class="g_img">
+              <span data-adjust="adjust">
+                <img id="img1" rel="" src="$pics[0]" alt="$!{title}"/>
+              </span>
+          </div>
+          <div class="g_thumb">
+              <span id="img_scrollLeft">
+                  <a href="javascript:void(0)" class="icon_left"></a>
+              </span>
+              <span id="img_scrollRight">
+                  <a href="javascript:void(0)" class="icon_right"></a>
+              </span>
+              <div class="g_thumb_main">
+                  <ul id="img_smalls" style="width: 663px;">
+                    #foreach($pic in $!{pics})
+                      #if($velocityCount==1)
+                        <li data-adjust="adjust" class="hover">
+                          <img rel="" alt="" src="$!{pic}" />
+                        </li>
+                      #else
+                        <li data-adjust="adjust">
+                            <img rel="" alt="" src="$!{pic}" />
+                        </li>
+                      #end
+                    #end                  
+                  </ul>
+              </div>
+              <div class="cl"></div>
+          </div>
+      </div>
+      #end
+      ##E 宝贝图片轮播
+  </div>
+  ##E banner 内容
+  ##S info_massege 价格 内容
+  <div class="info_massege left">
+    <ul>
+        <li class="price_li">
+          <span class="price_now">现价：#if ($!{zzInfo.nowPrice})<i>$!{zzInfo.nowPrice}</i>元 #else 面议 #end </span>
+          #if($!{zzInfo.oriPrice}!=0)
+            <span>原价：<i>$!{zzInfo.oriPrice}</i>元</span>
+            #set ($price_rate=$!{zzInfo.oriPrice}/$!{zzInfo.nowPrice})
+            #if($!{price_rate}!="undefined"&&$!{price_rate}>2)
+            <span class="cheaper_icon icon_png">超便宜</span>
+            #end
+          #end
+        </li>
+        <li class="palce_li">
+          <span>区域：<i>$!{zzInfo.cityName}-$!{zzInfo.areaName}</i></span>
+        </li>
+        <li class="biaoqian_li">
+          #if ($!{zzInfo.label}!="")
+            #set ($labelStr= $zzInfo.label.split("|"))
+            #if ($labelStr.size()>0)
+              #foreach($label in $labelStr)
+                <span>$label</span>
+              #end
+            #end
+          #end
+        </li>
+        <li class="button_li">
+            <span tongji_tag="zzpc_callclick&zzfrom=58web"class="talk_button download_button">联系卖家
+            </span>
+            <span tongji_tag="zzpc_buyclick&zzfrom=58web"class="buy_button download_button">我想买
+            </span>
+        </li>
+        <li class="talk_li">
+            <p>该信息来至【转转】，58同城担保</p>
+        </li>
+        <li class="special_li">
+            <dl class="true_dl">
+                <dt class="icon_png"></dt>
+                <dd class="dd1">真实个人</dd>
+                <dd class="dd2">买家验货 平台打款</dd>
+            </dl>
+            <dl class="sale_dl">
+                <dt class="icon_png"></dt>
+                <dd class="dd1">担保交易</dd>
+                <dd class="dd2">骗子再见 放心交易</dd>
+            </dl>
+            <dl class="talk_dl">
+                <dt class="icon_png"></dt>
+                <dd class="dd1">在线沟通</dd>
+                <dd class="dd2">更隐私 更方便</dd>
+            </dl>
+        </li>
+      </ul>
+  </div>
+  ##E info_massege 价格 内容
+</div>

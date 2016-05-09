@@ -1,0 +1,59 @@
+#macro(getSaleNavName $catName)
+#set($saleKeepNameArray=["手机号码","创意服务交易","其他跳蚤信息"])
+#set($saleTempCateName=$catName)
+#set($bFlag=false)
+#if($currentCateL2ID==8502)##成人用品
+#set($bFlag=true)
+#else
+#foreach($tempName in $saleKeepNameArray)
+#if($tempName.equals($saleTempCateName))
+#set($bFlag=true)
+#break
+#end
+#end
+#end    
+#if(!$bFlag && !($saleTempCateName.indexOf("二手") > -1))
+##排除saleKeepNameArray数组内容及含二手字样的分类("二手电脑/配件","二手手机","二手家电","二手家具/家居","二手设备","校园二手")
+#set($saleTempCateName="二手"+$saleTempCateName) ##其它情况则进行"二手"字样的添加
+#end
+#set($saleNavCateName=$saleTempCateName) ##设置返回值给宏外部变量
+#end
+##=S 面包屑导航
+<div class="nav">
+#if($pageEntity.getParaMap().containsKey("key"))
+#set($qaSearchResult = $pageModel.qaSearchResult)
+#end    
+#set($currentCateL2ID=${secondDispCategory.dispCategoryID})
+#set($navCateList = $pageModel.navCateList)
+<a href="/$addurlparam1">#if(${dispLocal.DispLocalID} != 8728)$!{city.LocalName} #end 58同城</a>
+<cite></cite><a href='/$!{rootDispCate.ListName}.shtml$addurlparam1'>$!{city.LocalName}$!{rootDispCate.CateName}</a>
+#set($saleNavCateName="") ##宏返回值会有空格,故使用此变量进行无空格串传递
+#set($tmpIndex = 0)
+#foreach($sCate in $navCateList)
+#if($currentCateL2ID==8502)
+#set($saleNavCateName=$sCate.CateName)
+#else
+#getSaleNavName($sCate.CateName)
+#end
+<cite></cite><a href='/$!{sCate.ListName}/$addurlparam1'>$!{city.LocalName}$!{saleNavCateName}</a>
+#set($tmpIndex = $tmpIndex + 1)
+#end
+#set($navLocalList = $localhelper.getNavLocalList($city, $dispLocal))
+#if($currentCateL2ID==8502)
+#set($saleNavCateName=$dispCategory.CateName)
+#else
+#getSaleNavName($dispCategory.CateName)
+#end
+<cite></cite><a href='/$!{dispCategory.ListName}/$addurlparam1'>$!{city.LocalName}$!{saleNavCateName}</a>
+#foreach($sLocal in $navLocalList)
+<cite></cite><a href='/$!{sLocal.ListName}/$!{dispCategory.ListName}/$addurlparam1'>$!{sLocal.LocalName}$!{dispCategory.CateName}</a>
+#end
+#if($dispLocal.DispLocalID != $city.DispLocalID)
+<cite></cite><a href='/$!{dispLocal.ListName}/$!{dispCategory.ListName}/$addurlparam1'>$!{dispLocal.LocalName}$!{dispCategory.CateName}</a>
+#end
+#if($qaSearchResult)
+#set($qaSearchTotalCount = $pageModel.qaSearchCount + $totalInfoCountDisplay)
+<cite></cite><span class="red">$!{pageModel.key}</span>&nbsp;&nbsp;搜索结果 <i id="numstat" class="jgnum">($!{qaSearchTotalCount})</i>
+#end
+</div>
+##E 面包屑导航

@@ -1,0 +1,38 @@
+#set ($comlength=$!commentInfos.size())
+#if($comlength>0)
+<div class="info_liuyan clearfix">
+	<div class="box_title clearfix liuyan_title">
+		<h3 class="box_title_h3 left">留言（<i>$comlength</i>）</h3>
+		#if($comlength>3)
+		<a href="#2" tongji_tag='from=zzpc_liuyanmoreclick&zzfrom=58web' title="查看更多" class="box_more download_button right">查看更多 &gt;&gt; </a>
+		#end
+	</div>
+	<ul class="liuyan_list clearfix">
+		#foreach($comment in $commentInfos)
+		#if($velocityCount < 4)
+		<li class="liuyan_li">
+			<span class="liuyan_face" data-adjust="adjust">
+				#if($comment.portrait)
+				<img src="$comment.portrait" alt="">
+				#else
+				<img src="$headIcon" alt="">
+				#end
+			</span>
+			<div class="liuyan_meg clearfix">
+				#if($comment.toNickName)
+				<i class="liuyan_name">$comment.fromNickName<span>回复</span>
+				<strong>@$comment.toNickName</strong>
+				</i>
+				#else
+				<i class="liuyan_name">$comment.fromNickName</i>
+				#end
+				<p class="liuyan_p">$comment.content</p>
+				<span class="liuyan_time"><i class="icon_png"></i>$comment.time</span>
+			</div>
+		</li>
+		#end
+		#end
+	</ul>
+	<span tonji_tag='from=zzpc_liuyanclick' class="liuyan_button download_button right">我要留言</span>
+</div>
+#end

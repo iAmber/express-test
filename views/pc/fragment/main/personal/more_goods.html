@@ -1,0 +1,22 @@
+<div class="personal tuijian_div">
+    <div class="personal_tuijian">
+		#if($!{moreInfos}&&$!moreInfos.size()>0)
+    	<h3 class="box_title">更多好货，都在转转</h3>
+    	<ul class="personal_list">
+    	#foreach($info in $!moreInfos)
+    	#if($velocityCount <=5)
+		<li class="clearfix" tongji_tag="from=zzpc_fabuclick&zzfrom=58web" url="$!{info.infoUrl}">
+			<dl>
+				<dt data-adjust="adjust">
+					<img rel="" alt="" src="$info.infoImage[0]" />
+				</dt>
+				<dd>$!{info.title}</dd>
+				<dd class="info_price"><i>$!{info.nowPrice}</i>元</dd>
+			</dl>
+		</li>
+		#end
+		#end
+    	</ul>
+    	#end
+	</div>
+</div>

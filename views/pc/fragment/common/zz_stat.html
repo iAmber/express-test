@@ -1,0 +1,37 @@
+<script type="text/javascript">
+	document.domain = '58.com';
+	try{
+		var ____json4fe = ${pageInfo.infoJson};
+		____json4fe.modules='finalpage';
+        ____json4fe.sid = '$!{pageInfo.sid}';
+        ____json4fe.sessionid = '$!{pageInfo.sessionid}';
+        #if(${es_ab} && !$!{saler.isBizWlt})
+        ____json4fe.page='$!{abtestpage}';
+        #end
+		#set($dlfSize=0)
+		#if($!{dispLocalFullList} != "")
+			#set($dlfSize=$dispLocalFullList.size())
+		#else
+			#set($dlfSize=0)
+		#end
+
+		#set($dlfIndex=$dlfSize - 1)
+		#if($dlfIndex<0)
+			#set($dlfLeaf=$cityLocal)
+		#else
+			#set($dlfLeaf=$dispLocalFullList.get($dlfIndex))
+		#end
+		#if($!{trackParams})
+			____json4fe._trackParams=$!{pageInfo.trackParams};
+		#end
+		
+		#if(${es_ab} && $!{saler.isBizWlt})
+			____json4fe._trackURL="{'cate':'${dispCategory.fullPath}','area':'${dlfLeaf.fullPath}','is_biz':'${info.isBiz}','pagetype':'detail','source':'$!{info.source}','qqtalk_show':'${qqInfo.isShow}','qqtalk_show_right':'$!{qqInfo.isShowRight}','version':'$!{abtestpage}'}";
+		#else
+		____json4fe._trackURL="{'cate':'${dispCategory.fullPath}','area':'${dlfLeaf.fullPath}','is_biz':'${info.isBiz}','pagetype':'detail','source':'${info.source}','qqtalk_show':'$!{qqInfo.isShow}','qqtalk_show_right':'${qqInfo.isShowRight}'}";
+		
+		#end;
+		____json4fe._trackPagetype= "detail";
+		____json4fe._trackPageview='/${cityLocal.listName}/${rootDispCategory.listName}/${dispCategory.listName}/detail/';
+	}catch(e){}
+</script>

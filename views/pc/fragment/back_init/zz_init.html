@@ -1,0 +1,44 @@
+#set ($headIcon="http://img.58cdn.com.cn/zhuanzhuan/images/default_head_icon.png")
+#set ($downloadUrl="http://m.zhuanzhuan.58.com/Mzhuanzhuan/zzWebInfo/zz58/zzpc/58hb_ld.html")
+
+#set ($commInfo=$pageModel.commInfo)
+#set ($zzInfo=$pageModel.infoModel.zzInfo)
+#set ($commentInfos=$pageModel.infoModel.commentInfos)
+#set ($userInfo=$pageModel.infoModel.userInfo)
+#set ($moreInfos=$pageModel.infoModel.moreInfos)
+#set ($ownInfos =$pageModel.infoModel.ownInfos)
+
+#set ($gender=$userInfo.gender)
+#set ($nickName=$userInfo.nickName)
+#set ($portrait=$userInfo.portrait)
+##头像处理
+#if ($!{portrait})
+#else
+#set ($portrait=$headIcon)
+#end
+
+#set ($title=$zzInfo.title)
+#set ($label=$zzInfo.label)
+##set ($content=$zzInfo.content.replaceAll("\n", "<br>"))
+#set ($content=$zzInfo.content)
+
+##SEO content部分处理
+##set ($seoContent=$zzInfo.content.replaceAll("\n", " "))
+#set ($seoContent=$zzInfo.content)
+#if ($!{seoContent})
+#else
+	#set($seoContent="${title}${label}")
+#end
+#if ($seoContent.length>80)
+	#set ($seoContent="$seoContent.substring(0,80)...")
+#end
+#set ($pics=$zzInfo.infoImage)
+#if ($!{pics})
+	#set ($piclen=$pics.size())
+#end
+
+#set ($infoId=$zzInfo.infoId)
+#set ($mUrl="http://m.zhuanzhuan.58.com/detail/${infoId}.shtml")
+
+##set $picHelper=pageModel.commInfo.picHelper
+##$picHelper.getfixedSizePicUrl("http://pic6.58cdn.com.cn/zhuanzh/n_v1bkuymc6vgyyfphlobu2q.raw", "_100_10")

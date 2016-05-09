@@ -1,0 +1,26 @@
+<div class="info_baby">
+<h3 class="box_title">宝贝详情</h3>
+<div class="baby_talk">
+  	<p class="baby_face  clearfix">
+    	<span class="baby_face_img">
+            <img src="$portrait" alt="">
+    	</span>
+    	<span><i>$!{nickName}</i>有话说</span>
+	</p>
+	<div class="baby_kuang clearfix">
+        <span class="icon_png sanjiao"></span>
+        #if ($!{content})
+            <p>$!{content}</p>
+            <i class="right">喜欢就快联系我吧，我在转转等你。</i>
+        #else
+            <p>喜欢就快联系我吧，我在转转等你。</p>
+        #end
+    </div>
+    <div class="boby_pic">
+    	##商品大图
+        #foreach($pic in $pics)
+            <img src="$!{pic}" alt="">
+        #end
+	</div>
+</div>
+</div>

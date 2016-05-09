@@ -1,0 +1,109 @@
+<div class="box_right">
+  <div class="personal jieshao_div">
+    ##个人信息简介
+    <div class="personal_jieshao">
+  		<ul class="personal_biaoqian clearfix">
+  		#foreach($info in $userInfo.verifyLabels)
+  		#if($velocityCount == 1)
+  			<li>$info.labelName</li>
+  		#end
+      #end
+  		</ul>
+      <div class="personal_touxiang" data-adjust="adjust">
+        #if($userInfo.portrait)
+          <img src="$userInfo.portrait" alt="">
+        #else
+          <img src="$headIcon" alt="">
+        #end
+      </div>
+      <p class="personal_name">$!{userInfo.nickName}</p>
+      <div class="xingxing clearfix">
+        #if($userInfo.largeScore)
+        #foreach($info in [1..$!{userInfo.largeScore}])
+          <span class="icon_png "></span>
+        #end
+        #end
+        #if($userInfo.smallScore)
+        #foreach($info in [1..$!{userInfo.smallScore}])
+          <span class="icon_png smallScore"></span>
+        #end
+        #end
+      </div>
+      #if($!{userInfo.joinDays}=="新人")
+        <p class="personal_chengjiu">$!{gender}是一个转转$!{userInfo.joinDays}</p>
+      #else
+        <p class="personal_chengjiu">$!{gender}加入转转$!{userInfo.joinDays}</p>
+      #end
+      #set ($sellingCount=$userInfo.sellingCount)
+      #if($!{sellingCount}&&$!{sellingCount} >0)
+        #if($!{sellingCount}>=1&&$!{sellingCount} <=3)
+        <p class="personal_baby">$!{gender}已成交<i>$!{sellingCount}</i>笔，小有成就咯</p>
+        #elseif($!{sellingCount}>=4&&$!{sellingCount} <=10)
+        <p class="personal_baby">$!{gender}已成交<i>$!{sellingCount}</i>笔，相当厉害了</p>
+        #else
+        <p class="personal_baby">$!{gender}已成交<i>$!{sellingCount}</i>笔，闲置达人</p>
+        #end
+      #else
+      <p class="personal_baby">so sad,$!{gender}还没有成交过</p>
+      #end
+    </div>
+    ##评价
+    #if($!{userInfo.labels}&&$userInfo.labels.size()>0)
+    <div class="personal_pingjia">
+      <h3 class="box_title">大家这么评价$!{gender}</h3>
+      <ul class="clearfix">
+        #foreach($info in $userInfo.labels)
+        #if($velocityCount <=5)
+        <li>$info.content<i>$info.count</i></li>
+        #end
+        #end
+      </ul>
+    </div>
+    #end
+    ##他的宝贝
+    <div class="personal_salebaby">
+      #if($!{ownInfos}&&$!ownInfos.size()>0)
+        <h3 class="box_title">$!{gender}的宝贝($!ownInfos.size())</h3>
+        <ul class="personal_list">
+        #foreach($info in $!ownInfos)
+        #if($velocityCount <=5)
+        <li class="clearfix" tongji_tag="from=zzpc_fabuclick&zzfrom=58web" url="$!{info.infoUrl}">
+          <dl>
+            <dt data-adjust="adjust">
+              <img rel="" alt="" src="$info.infoImage[0]" />
+            </dt>
+            <dd>$!{info.title}</dd>
+            <dd class="info_price"><i>$!{info.nowPrice}</i>元</dd>
+          </dl>
+        </li>
+        #end
+        #end
+        </ul>
+      #end
+    </div>
+  </div>
+  ##parse("/views/pc/fragment/main/personal/more_goods.html")
+  ##推荐
+  <div class="personal tuijian_div">
+    <div class="personal_tuijian">
+    #if($!{moreInfos}&&$!moreInfos.size()>0)
+      <h3 class="box_title">更多好货，都在转转</h3>
+      <ul class="personal_list">
+      #foreach($info in $!moreInfos)
+      #if($velocityCount <=5)
+      <li class="clearfix" tongji_tag="from=zzpc_tuijianclick&zzfrom=58web" url="$!{info.infoUrl}">
+        <dl>
+          <dt data-adjust="adjust">
+            <img rel="" alt="" src="$info.infoImage[0]" />
+          </dt>
+          <dd>$!{info.title}</dd>
+          <dd class="info_price"><i>$!{info.nowPrice}</i>元</dd>
+        </dl>
+      </li>
+      #end
+      #end
+      </ul>
+    #end
+  </div>
+</div>
+</div>
