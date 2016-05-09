@@ -307,8 +307,6 @@ define('./tank',['../common/config'],function(config) {
                 var downloadUrlStrCode=encodeURIComponent(downloadUrlStr);
                 var erweima_api='http://api.vip.58.com/genqrcode?size=200x200&margin=0&content='
                 var apiUrl=erweima_api+downloadUrlStr;
-                console.log("downloadUrlStr"+downloadUrlStr);
-                console.log("apiUrl="+apiUrl);
                 var erweimaImg='<img class="left" src="'+erweima_api+downloadUrlStrCode+'" alt=""/>';
                 $("#diver_erweima").append(erweimaImg)
                 
